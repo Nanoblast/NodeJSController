@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Nanoblast/NodeJSController/issues"
   },
-  "homepage": "https://github.com/Nanoblast/NodeJSController#readme"
+  "homepage": "https://github.com/Nanoblast/NodeJSController#readme",
+  "dependencies": {
+    "ejs": "^3.1.6"
+  }
 }

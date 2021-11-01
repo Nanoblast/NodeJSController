@@ -1,0 +1,25 @@
+<%- include('header') -%>
+<div class="container">
+    <table class="table table-striped" style="border: 1px solid grey">
+        <tbody>
+            <tr...>
+                <% devices.forEach(function(device) { %>
+                <tr>
+                    <td>
+                        <%= device.name %>
+                    </td>
+                    <td>
+                        <%= device.type %>
+                    </td>
+                    <td>
+                        <%= device.definition %>
+                    </td>
+                    <td> <a href="/device/edit/:deviceid" class="btn btn-dark"> Details </button></td>
+                </tr>
+                <% }); %>        
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<%- include('footer') -%>
