@@ -1,5 +1,5 @@
 const Schema = require('mongoose').Schema;
-const bd = require('../config/d');
+const db = require('../config/db');
 
 const Log = db.model('Log', {  
     timestamp: Number,

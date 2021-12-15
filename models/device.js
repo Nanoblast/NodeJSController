@@ -1,5 +1,5 @@
 const Schema = require('mongoose').Schema;
-const bd = require('../config/d');
+const db = require('../config/db');
 
 const Device = db.model('Device', {
     name: String,
@@ -8,4 +8,4 @@ const Device = db.model('Device', {
     
 });
 
-module.exports = Device;
+module.exports = Device;    

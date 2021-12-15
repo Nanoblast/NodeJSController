@@ -9,21 +9,23 @@ var saveDevice = require('../middleware/device/saveDevice');
 var getLog = require('../middleware/log/getLog');
 var getAllLogs = require('../middleware/log/getAllLogs');
 
-module.exports = function (app) {
-    var objRepo = {};
-
-    app.get('/',
-        authMW(objRepo),
+var DeviceModel = require("../models/device");
+var LogModel = require("../models/log");
+module.exports = function(app) {
+    var objRepo = {
+        DeviceModel: DeviceModel,
+        LogModel: LogModel
+    };
+    
+    app.use('/',
         checkPassMW(objRepo),
         renderMW(objRepo, 'login'));
     app.get('/main',
         authMW(objRepo),
-        checkPassMW(objRepo),
         getAllDevices(objRepo),
         renderMW(objRepo, 'index'));
     app.get('/editDevices',
         authMW(objRepo),
-        checkPassMW(objRepo),
         getAllDevices(objRepo),
         renderMW(objRepo, 'devices'));
     app.use('/device/new',

@@ -25,6 +25,6 @@
             }
          ];
 
-         next();
+         return next();
         };
  };
