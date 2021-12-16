@@ -1,0 +1,21 @@
+<%- include('header') -%>
+<div class="container">
+    <table class="table table-striped" style="border: 1px solid grey">
+        <tbody>
+            <tr...>
+                <% logs.forEach(function(log) { %>
+                <tr>
+                    <td>
+                        <%= log.message %>
+                    </td>
+                    <td> <a href="/log/delete/<%= log._id %>" class="btn btn-danger"> Delete </a></td>
+                    <td> <a href="/log/edit/<%= log._id %>" class="btn btn-primary"> Edit </a> </td>
+                </tr>
+                <% }); %>        
+            </tr>
+        </tbody>
+    </table>
+    <a href="/main" class="btn btn-primary"> Back </a> 
+</div>
+
+<%- include('footer') -%>

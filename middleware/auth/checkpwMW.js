@@ -1,6 +1,3 @@
-/**
- * Check the password (from POST), if it's the right one, create a session for the user and redirect to /main
- */
 var requireOption = require('../requireOption');
 
 module.exports = function(objectrepository) {
@@ -8,8 +5,10 @@ module.exports = function(objectrepository) {
         if (typeof req.body.password === 'undefined') {
             return next();
         }
-
         if (req.body.password === '123') {
+
+            req.session.belepve = true;
+            req.session.save();
             return res.redirect('/main');
         }
 

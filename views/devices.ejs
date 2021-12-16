@@ -2,29 +2,36 @@
 <div class="container " style="border:1px solid black"> 
     <div class="row">
         <div class="col">
-            Devices
+            <h1>Devices </h1>
         </div>
     </div>
     
+    
     <div class="row">
       <% devices.forEach(function(device) { %>
-        <div class="col">
+      
+        <div class="col" style="border:1px solid black">
+            <div class="center">
+                <h2> Device name: <%= device.name %> </h2>
+            </div>
             <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" fill="currentColor" class="bi bi-laptop" viewBox="0 0 16 16">
                 <path d="M13.5 3a.5.5 0 0 1 .5.5V11H2V3.5a.5.5 0 0 1 .5-.5h11zm-11-1A1.5 1.5 0 0 0 1 3.5V12h14V3.5A1.5 1.5 0 0 0 13.5 2h-11zM0 12.5h16a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 12.5z"/>
             </svg>
                 <tr>
                     <td>
-                        <a href="/device/edit/:deviceid" class="btn btn-dark"> Edit </button></a>
+                        <a href="/device/edit/<%= device._id %>"" class="btn btn-dark"> Edit </button></a>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <a href="/device/del/:deviceid" class="btn btn-danger"> Delete </button></a>
+                        <a href="/device/del/<%= device._id %>" class="btn btn-danger"> Delete </button></a>
                     </td>
                 </tr>
         </div>
         <% }); %>  
     </div>
+    <a href="/main" class="btn btn-dark"> Back </button></a>
 </div>
+
 
 <%- include('footer') -%>

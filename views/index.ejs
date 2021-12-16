@@ -14,12 +14,22 @@
                     <td>
                         <%= device.definition %>
                     </td>
-                    <td> <a href="/device/edit/:deviceid" class="btn btn-dark"> Details </button></td>
+                    <td> <a href="/editDevices" class="btn btn-dark"> Details </td>
                 </tr>
                 <% }); %>        
             </tr>
         </tbody>
     </table>
-</div>
+    <div class="col">
+        <a href="/device/new" class="btn btn-primary"> Add new device  </a>    
+    </div> 
+    Recent logs:
+    <div class="col">
+        <textarea readonly rows="5" cols="60"><% logs.forEach(function(log){ %>
+<%= log.message %><% }); %>
+</textarea>
+    </div>
+    <a href="/log/edit" class="btn btn-danger"> Edit Logs</a>    
 
+</div>
 <%- include('footer') -%>

@@ -5,7 +5,15 @@
  var requireOption = require('../requireOption');
 
  module.exports = function (objectrepository) {
-     return function (req, res, next) {
-         next();
-     };
+    var DeviceModel = requireOption(objectrepository, 'DeviceModel');
+
+    return function(req, res, next) {
+        DeviceModel.findOne({ _id: req.params.deviceid }, (err, device) => {
+            if (err || !device) {
+                return next(err);
+            }
+            res.locals.devices = device;
+            return next();
+        });
+    };
  };

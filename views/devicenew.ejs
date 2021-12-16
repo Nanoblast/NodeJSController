@@ -1,17 +1,28 @@
 <%- include('header') -%>
-<form>
+<form method="POST">
     <div class="container">
         <div class="row">
     <div class="col-6">
-      <label for="deviceNameInput" class="form-label">Device Name</label>
-      <input type="email" class="form-control" id="deviceNameInput">
+      <label for="deviceNameInput" class="form-label">Device name</label>
+      <input type="text" required class="form-control" id="deviceNameInput" name="name" 
+      value="<%= (typeof devices === 'undefined') ? '' : devices.name %>" >
+      
     </div>
     <div class="col-6">
+      <label for="deviceNameInput" class="form-label">Device type</label>
+      <input type="text" required class="form-control" id="deviceType" name="type"
+      value="<%= (typeof devices === 'undefined') ? '' : devices.type %>" >
+    </div>
+    <div class="row">
+      <div class="col-6">
         <label for="deviceDescription" class="form-label">Device description</label>
-        <input type="email" class="form-control" id="deviceDescription">
+        <input type="textarea" required class="form-control" id="deviceDescription" name="description"
+        value="<%= (typeof devices === 'undefined') ? '' : devices.definition %>" >
       </div>
     </div>
-    <a href="/device/new" class="btn btn-dark">Submit</a>
+    </div>
+    <input type="submit" class="btn btn-dark"></a>
+    <a href="/main" class="btn btn-danger"> Cancel </button></a>
     </div>
   </form>
 
