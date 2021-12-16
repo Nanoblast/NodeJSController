@@ -6,7 +6,6 @@
 
  module.exports = function (objectrepository) {
     var DeviceModel = requireOption(objectrepository, 'DeviceModel');
-
     return function(req, res, next) {
         DeviceModel.findOne({ _id: req.params.deviceid }, (err, device) => {
             if (err || !device) {

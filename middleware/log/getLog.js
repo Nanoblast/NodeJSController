@@ -11,7 +11,6 @@
             if (err || !log) {
                 return next(err);
             }
-
             res.locals.logs = log;
             return next();
         });

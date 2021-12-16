@@ -8,6 +8,7 @@ var saveDevice = require('../middleware/device/saveDevice');
 var getLog = require('../middleware/log/getLog');
 var getAllLogs = require('../middleware/log/getAllLogs');
 var delLog = require('../middleware/log/delLog')
+var saveLog = require('../middleware/log/saveLog')
 
 var DeviceModel = require("../models/device");
 var LogModel = require("../models/log");
@@ -47,6 +48,11 @@ module.exports = function(app) {
         authMW(objRepo),
         getAllLogs(objRepo),
         renderMW(objRepo, 'logs'));
+    app.use('/log/modify/:logid',
+        authMW(objRepo),
+        getLog(objRepo),
+        saveLog(objRepo),
+        renderMW(objRepo, 'logedit'));
     app.get('/log/delete/:logid',
         authMW(objRepo),
         getLog(objRepo),
