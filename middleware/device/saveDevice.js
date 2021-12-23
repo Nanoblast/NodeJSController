@@ -20,7 +20,7 @@ var requireOption = require('../requireOption');
         res.locals.devices.definition = req.body.description;
         
         if (update) {
-            res.locals.logs.message = (req.body.name + ' registered!');
+            res.locals.logs.message = (req.body.name + ' updated!');
         } else {
             res.locals.logs.message = (req.body.name + ' registered!');
         }
